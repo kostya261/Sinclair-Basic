@@ -1,4 +1,4 @@
-10 DIM t$(16, 12)
+10 DIM t$(16, 12): REM Type commands
 20 FOR i=1 TO 16
 25 READ a$
 30 LET t$(i)=a$

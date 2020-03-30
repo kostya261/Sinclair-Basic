@@ -18,7 +18,7 @@
 2210 IF a$="" THEN GO TO 2200
 2220 IF a$="9" THEN LET PosCursor=PosCursor-(PosCursor>0): IF PosCursor<=0 THEN LET Scroll=Scroll-(Scroll>0)
 2230 IF a$="8" THEN LET PosCursor=PosCursor+(PosCursor<5): IF PosCursor>=5 THEN LET Scroll=Scroll+((Scroll+5)<EndStackCmd)
-2240 IF a$="0" THEN LET a$="": PAUSE 10: GO SUB 3000
+2240 IF a$="0" THEN LET a$="": FOR i=1 TO 50: NEXT i: GO SUB 3000
 2250 IF a$="e" OR a$="E" THEN PAUSE 10: GO SUB 3000 
 2260 IF a$="c" OR a$="C" THEN POKE StackCmd+PosCursor+Scroll, 0
 2270 IF a$="x" OR a$="X" THEN FOR i=StackCmd TO StackCmd+EndStackCmd: POKE i, 0: NEXT i

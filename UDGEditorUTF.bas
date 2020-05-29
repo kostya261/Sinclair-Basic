@@ -27,8 +27,8 @@
 630 PRINT INK 2; AT 0, 10; "UDG Editor"; INK 0; AT 2, 15; "1) LOAD"; AT 3, 15; "2) SAVE"; 
 		 AT 4, 15; "3) Catalog"; AT 5, 15; "4) Select Char"; AT 6, 15; "5) Clear Char"; 
 		 AT 7, 14; "Sp) Enter Char"
-635 PRINT AT 13, 1; "Move cursor: Interface II"; INK 2; AT 14, 1; "6 - Left 7 - Right"; 
-	  AT 15, 1; "8 - Down 9 - Up"; AT 16, 1; "0 - Select"
+635 PRINT AT 13, 2; "Move cursor: Interface II"; INK 2; AT 14, 2; "6 - Left 7 - Right"; 
+	  AT 15, 2; "8 - Down 9 - Up"; AT 16, 2; "0 - Select"
 640 INK 1: PLOT 14, 33: DRAW 220, 0: DRAW 0, -26: DRAW -220, 0: DRAW 0, 26: INK 0
 642 PRINT AT 18, 2; " A-A B-B C-C D-D E-E F-F G-G"; AT 19, 2; " H-H I-I J-J K-K L-L M-M N-N"; 
 	  AT 20, 2; " O-O P-P Q-Q R-R S-S T-T U-U";

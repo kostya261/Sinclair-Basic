@@ -14,12 +14,13 @@
 116 IF NOT u(y, x) THEN PRINT AT y, x;" "
 200 LET x = x + (x < 8 AND a$ = "7") - (x > 1 AND a$ = "6")
 210 LET y = y + (y < 8 AND a$ = "8") - (y > 1 AND a$ = "9")
-220 IF a$ = "0" THEN LET u(y, x) = NOT u(y, x): LET v$ = a$: LET timer = 6: PAUSE 1000
+220 IF a$ = "0" THEN LET u(y, x) = NOT u(y, x): LET v$ = a$: LET timer = 4: PAUSE 500
 225 IF a$ = "1" THEN GO SUB 830
 226 IF a$ = "2" THEN GO SUB 800
 230 IF a$ = "3" THEN GO SUB 600
 240 IF a$ = "4" THEN GO SUB 700
 245 IF a$ = "5" THEN GO SUB 2200
+246 IF a$ = "c" OR a$ = "С" THEN GO SUB 2300
 250 IF a$ = " " THEN GO SUB 2080
 500 GO TO 100
 600 RANDOMIZE USR 15619: REM: CAT
@@ -30,8 +31,8 @@
 635 PRINT AT 13, 2; "Move cursor: Interface II"; INK 2; AT 14, 2; "6 - Left 7 - Right"; 
 	  AT 15, 2; "8 - Down 9 - Up"; AT 16, 2; "0 - Select"
 640 INK 1: PLOT 14, 33: DRAW 220, 0: DRAW 0, -26: DRAW -220, 0: DRAW 0, 26: INK 0
-642 PRINT AT 18, 2; " A-A B-B C-C D-D E-E F-F G-G"; AT 19, 2; " H-H I-I J-J K-K L-L M-M N-N"; 
-	  AT 20, 2; " O-O P-P Q-Q R-R S-S T-T U-U";
+642 PRINT AT 18, 2; "A-A B-B C-C D-D E-E F-F G-G"; AT 19, 2; "H-H I-I J-J K-K L-L M-M N-N"; 
+	  AT 20, 2; "O-O P-P Q-Q R-R S-S T-T U-U";
 645 INK 1: PLOT 6, 169: DRAW 67, 0: DRAW 0, -67: DRAW -67, 0: DRAW 0, 67: INK 0
 650 GO SUB 1000
 660 RETURN
@@ -82,3 +83,11 @@
 2130 RETURN
 2190 REM Clear char
 2200 FOR i = 1 TO 8: FOR j = 1 TO 8: LET u(i, j) = 0: NEXT j: NEXT i: CLS: GO SUB 630: GO SUB 1000: RETURN
+2300 PRINT INK 2; AT 11, 8; "Clear Table? (Y/N)"
+2301 PLOT 60, 90: DRAW 148, 0: DRAW 0, -14: DRAW -148, 0: DRAW 0, 14: PLOT 209, 89: DRAW 0, -14: DRAW -148, 0
+2305 LET a$ = INKEY$Z IF a$ = "" THEN GO TO 2305
+2310 IF a$ <> "y" AND a$ <> "Y" THEN CLS: GO SUB 630: RETURN
+2320 FOR i = USR "A" TO (USR "A") + 167: POKE i, 0: NEXT i
+2330 CLS
+2340 GO SUB 2200: GO SUB 630
+2400 RETURN
